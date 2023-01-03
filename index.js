@@ -18,15 +18,15 @@ app.post('/test', async (req, res) => {
     let mailTransporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'hitesh19426@iiitd.ac.in',
+            user: process.env.EMAIL,
             pass: process.env.PASSWORD,
         }
     })
 
     let mailOptions = {
-        from: 'hitesh19426@iiitd.ac.in',
-        to: 'hitesh19426@iiitd.ac.in',
-        subject: 'Test nodemailer',
+        from: process.env.EMAIL,
+        to: 'info@redpositive.in',
+        subject: 'React Native Intern Task',
         text: "name: " + name + "\nmobile: " + mobile + "\nmessage: " + message + "\nmail: " + mail,
     }
 
